@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button.OnClickListener mClickListener = new View.OnClickListener() {
         public void onClick(View view) {
-            Button a= (Button) view;
-            editText.setText(editText.getText().toString() + a.getText().toString());
+            Button button= (Button) view;
+            editText.setText(editText.getText().toString() + button.getText().toString());
         }
     };
 
