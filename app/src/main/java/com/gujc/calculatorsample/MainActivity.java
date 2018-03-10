@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    // original code: https://gist.github.com/kor-trickster/789450
     private String Calc(String formulaStr){
         StringTokenizer st_num  = new StringTokenizer(formulaStr,"+-/* ");
         StringTokenizer st_oper = new StringTokenizer(formulaStr,"1234567890 ");
