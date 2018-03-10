@@ -17,21 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
         editText= findViewById(R.id.editText);
 
-        findViewById(R.id.button0).setOnClickListener(mClickListener);
-        findViewById(R.id.button1).setOnClickListener(mClickListener);
-        findViewById(R.id.button2).setOnClickListener(mClickListener);
-        findViewById(R.id.button3).setOnClickListener(mClickListener);
-        findViewById(R.id.button4).setOnClickListener(mClickListener);
-        findViewById(R.id.button5).setOnClickListener(mClickListener);
-        findViewById(R.id.button6).setOnClickListener(mClickListener);
-        findViewById(R.id.button7).setOnClickListener(mClickListener);
-        findViewById(R.id.button8).setOnClickListener(mClickListener);
-        findViewById(R.id.button9).setOnClickListener(mClickListener);
-        findViewById(R.id.button10).setOnClickListener(mClickListener);
-        findViewById(R.id.button11).setOnClickListener(mClickListener);
-        findViewById(R.id.button12).setOnClickListener(mClickListener);
-        findViewById(R.id.button13).setOnClickListener(mClickListener);
-        findViewById(R.id.button14).setOnClickListener(mClickListener);
+        for(int i=0; i<15; i++) {
+            String buttonID = "button" + i;
+            int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+            findViewById(resID).setOnClickListener(mClickListener);
+        }
     }
 
     Button.OnClickListener mClickListener = new View.OnClickListener() {
@@ -40,17 +30,5 @@ public class MainActivity extends AppCompatActivity {
             editText.setText(editText.getText().toString() + a.getText().toString());
         }
     };
-    /*Button.OnClickListener mClickListener = new View.OnClickListener() {
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.button0:
-                    editText.setText("0");
-                    break;
-                case R.id.button1:
-                    editText.setText("1");
-                    break;
-            }
-        }
-    };*/
 
 }
