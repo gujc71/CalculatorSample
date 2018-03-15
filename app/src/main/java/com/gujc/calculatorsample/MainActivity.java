@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 public class MainActivity extends AppCompatActivity {
     private TextView editText;
     private String operator = null;
-    private String dividend = "";
+    private String firstValue = "";
     private boolean isInit = false;
 
     @Override
@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
     /*
      1. 숫자 입력
      2. 연산자 입력
-        2.1 피젯수(dividend)가 없으면 입력한 숫자를 피젯수로 지정
+        2.1 첫번째수(firstValue)가 없으면 입력한 숫자를 첫번째수로 지정
         2.1 연산자 보관
      3. 숫자입력
      4. 연산자, = 입력
-        4.1 입력한 숫자를 젯수(divisor)로 지정
+        4.1 입력한 숫자를 두번째수(secondValue)로 지정
         4.2 연산
         4.3 = 이면 모두 초기화
-        4.4 = 이 아니면 계산값은 피젯수, 연산자 보관
+        4.4 = 이 아니면 계산값은 첫번째수, 연산자 보관
      */
     Button.OnClickListener mClickListener = new View.OnClickListener() {
         public void onClick(View view) {
@@ -65,29 +65,29 @@ public class MainActivity extends AppCompatActivity {
                 case "*":
                 case "/":
                 case "=":
-                    if ("".equals(dividend)) {
-                        dividend = editText.getText().toString();
+                    if ("".equals(firstValue)) {
+                        firstValue = editText.getText().toString();
                         editText.setText("");
                     } else
                     if (!"".equals(operator)) {
-                        String divisor = editText.getText().toString();
+                        String secondValue = editText.getText().toString();
                         Integer cal = 0;
                         switch (operator) {
-                            case "+": cal = Integer.parseInt(dividend) + Integer.parseInt(divisor); break;
-                            case "-": cal = Integer.parseInt(dividend) - Integer.parseInt(divisor); break;
-                            case "*": cal = Integer.parseInt(dividend) * Integer.parseInt(divisor); break;
-                            case "/": cal = Integer.parseInt(dividend) / Integer.parseInt(divisor); break;
+                            case "+": cal = Integer.parseInt(firstValue) + Integer.parseInt(secondValue); break;
+                            case "-": cal = Integer.parseInt(firstValue) - Integer.parseInt(secondValue); break;
+                            case "*": cal = Integer.parseInt(firstValue) * Integer.parseInt(secondValue); break;
+                            case "/": cal = Integer.parseInt(firstValue) / Integer.parseInt(secondValue); break;
                         }
 
                         editText.setText(cal.toString());
-                        dividend = "";
+                        firstValue = "";
                         isInit = true;
 
                         if ("=".equals(clickValue)) {
                             operator = "";
                             return;
                         }
-                        dividend = cal.toString();
+                        firstValue = cal.toString();
                     }
                     operator = clickValue;
 
