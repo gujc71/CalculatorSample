@@ -17,18 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
         editText= findViewById(R.id.editText);
 
-        for(int i=0; i<15; i++) {
-            String buttonID = "button" + i;
-            int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-            findViewById(resID).setOnClickListener(mClickListener);
-        }
     }
 
-    Button.OnClickListener mClickListener = new View.OnClickListener() {
-        public void onClick(View view) {
+    public void mClickListener (View view) {
             Button button= (Button) view;
             editText.setText(editText.getText().toString() + button.getText().toString());
-        }
     };
 
 }
