@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    tools:context="com.gujc.mycalc1.MainActivity">
+    tools:context="com.gujc.calculatorsample.MainActivity">
 
     <EditText
         android:id="@+id/editText"
@@ -26,8 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="7"
-            android:textSize="14sp" />
+            android:text="7"  />
 
         <Button
             android:id="@+id/button8"
